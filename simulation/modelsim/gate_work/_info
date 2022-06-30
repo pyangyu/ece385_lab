@@ -1,0 +1,86 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dE:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/simulation/modelsim
+vhard_block
+Z1 DXx6 sv_std 3 std 0 22 AD7iAPLo6nTIKk<N0eo=D3
+Z2 !s110 1656117281
+!i10b 1
+!s100 V6A=>Gi9Q3c4nmU54jk4K3
+IEOodzfNCM`HQnXXl_cP?S1
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+Z4 !s105 lab2_svo_unit
+S1
+R0
+Z5 w1656117218
+Z6 8lab2.svo
+Z7 Flab2.svo
+L0 3285
+Z8 OV;L;10.5b;63
+r1
+!s85 0
+31
+Z9 !s108 1656117280.000000
+Z10 !s107 lab2.svo|
+Z11 !s90 -reportprogress|300|-sv|-work|work|+incdir+.|lab2.svo|
+!i113 1
+Z12 o-sv -work work
+Z13 !s92 -sv -work work +incdir+.
+Z14 tCvgOpt 0
+vProcessor
+R1
+R2
+!i10b 1
+!s100 1hAHdX0WON1zcBa1HaoSD0
+IH3>Il1XTgLLl4ZgglB^UX0
+R3
+R4
+S1
+R0
+R5
+R6
+R7
+L0 31
+R8
+r1
+!s85 0
+31
+R9
+R10
+R11
+!i113 1
+R12
+R13
+R14
+n@processor
+vtestbench2
+R1
+!s110 1656117282
+!i10b 1
+!s100 fKLK;[2VDUa<2IIDXDi1>0
+I;Rg?^mjfbLzbhA``RJA4B0
+R3
+!s105 testbench_8_sv_unit
+S1
+R0
+w1656009304
+8E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/testbench_8.sv
+FE:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/testbench_8.sv
+L0 1
+R8
+r1
+!s85 0
+31
+!s108 1656117281.000000
+!s107 E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/testbench_8.sv|
+!s90 -reportprogress|300|-sv|-work|work|+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu|E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/testbench_8.sv|
+!i113 1
+R12
+!s92 -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu
+R14
