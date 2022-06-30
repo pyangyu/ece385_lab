@@ -1,153 +1,70 @@
 # Reading E:/Folder_U/uiuc_summer_2022/ECE385/Quartus_APP/modelsim_ase/tcl/vsim/pref.tcl
-# do lab2_run_msim_rtl_verilog.do
-# if {[file exists rtl_work]} {
-# 	vdel -lib rtl_work -all
+# do lab2_run_msim_gate_systemverilog.do
+# if {[file exists gate_work]} {
+# 	vdel -lib gate_work -all
 # }
-# vlib rtl_work
-# vmap work rtl_work
+# vlib gate_work
+# vmap work gate_work
 # Model Technology ModelSim - Intel FPGA Edition vmap 10.5b Lib Mapping Utility 2016.10 Oct  5 2016
-# vmap work rtl_work 
+# vmap work gate_work 
 # Copying E:/Folder_U/uiuc_summer_2022/ECE385/Quartus_APP/modelsim_ase/win32aloem/../modelsim.ini to modelsim.ini
 # Modifying modelsim.ini
 # 
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Synchronizers.sv}
+# vlog -sv -work work +incdir+. {lab2.svo}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:52 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Synchronizers.sv 
-# -- Compiling module sync
-# -- Compiling module sync_r0
-# -- Compiling module sync_r1
-# 
-# Top level modules:
-# 	sync
-# 	sync_r0
-# 	sync_r1
-# End time: 19:36:52 on Jun 24,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Router.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:52 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Router.sv 
-# -- Compiling module router
-# 
-# Top level modules:
-# 	router
-# End time: 19:36:52 on Jun 24,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Reg_4.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:52 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Reg_4.sv 
-# -- Compiling module reg_4
-# 
-# Top level modules:
-# 	reg_4
-# End time: 19:36:53 on Jun 24,2022, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/HexDriver.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:53 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/HexDriver.sv 
-# -- Compiling module HexDriver
-# 
-# Top level modules:
-# 	HexDriver
-# End time: 19:36:53 on Jun 24,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:53 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv 
-# -- Compiling module control
-# 
-# Top level modules:
-# 	control
-# End time: 19:36:53 on Jun 24,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/compute.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:53 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/compute.sv 
-# -- Compiling module compute
-# 
-# Top level modules:
-# 	compute
-# End time: 19:36:53 on Jun 24,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Register_unit.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:53 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Register_unit.sv 
-# -- Compiling module register_unit
-# 
-# Top level modules:
-# 	register_unit
-# End time: 19:36:53 on Jun 24,2022, Elapsed time: 0:00:00
-# Errors: 0, Warnings: 0
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv}
-# Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:53 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv 
+# Start time: 18:05:04 on Jun 30,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+." lab2.svo 
 # -- Compiling module Processor
+# -- Compiling module hard_block
 # 
 # Top level modules:
 # 	Processor
-# End time: 19:36:54 on Jun 24,2022, Elapsed time: 0:00:01
+# End time: 18:05:04 on Jun 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/testbench_8.sv}
+# vlog -sv -work work +incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3 {E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/testbench_8.sv}
 # Model Technology ModelSim - Intel FPGA Edition vlog 10.5b Compiler 2016.10 Oct  5 2016
-# Start time: 19:36:54 on Jun 24,2022
-# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/testbench_8.sv 
+# Start time: 18:05:04 on Jun 30,2022
+# vlog -reportprogress 300 -sv -work work "+incdir+E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3" E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/testbench_8.sv 
 # -- Compiling module testbench2
 # 
 # Top level modules:
 # 	testbench2
-# End time: 19:36:54 on Jun 24,2022, Elapsed time: 0:00:00
+# End time: 18:05:04 on Jun 30,2022, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # 
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs="+acc"  testbench2
-# vsim -t 1ps -L altera_ver -L lpm_ver -L sgate_ver -L altera_mf_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L rtl_work -L work -voptargs=""+acc"" testbench2 
-# Start time: 19:36:54 on Jun 24,2022
+# vsim -t 1ps +transport_int_delays +transport_path_delays -L altera_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L gate_work -L work -voptargs="+acc"  testbench2
+# vsim -t 1ps "+transport_int_delays" "+transport_path_delays" -L altera_ver -L altera_lnsim_ver -L fiftyfivenm_ver -L gate_work -L work -voptargs=""+acc"" testbench2 
+# Start time: 18:05:04 on Jun 30,2022
 # Loading sv_std.std
 # Loading work.testbench2
 # Loading work.Processor
-# Loading work.register_unit
-# Loading work.reg_4
-# Loading work.compute
-# Loading work.router
-# Loading work.control
-# Loading work.HexDriver
-# Loading work.sync
+# Loading work.hard_block
+# Loading fiftyfivenm_ver.fiftyfivenm_lcell_comb
+# Loading fiftyfivenm_ver.fiftyfivenm_io_obuf
+# Loading fiftyfivenm_ver.fiftyfivenm_io_ibuf
+# Loading fiftyfivenm_ver.fiftyfivenm_clkctrl
+# Loading fiftyfivenm_ver.fiftyfivenm_mux41
+# Loading fiftyfivenm_ver.fiftyfivenm_ena_reg
+# Loading altera_ver.dffeas
+# Loading fiftyfivenm_ver.fiftyfivenm_unvm
+# Loading fiftyfivenm_ver.fiftyfivenm_adcblock
+# Loading altera_ver.PRIM_GDFF_LOW
+# ** Warning: (vsim-3017) lab2.svo(2776): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench2/lab3_processor/\~QUARTUS_CREATED_ADC1~  File: /build/swbuild/SJ/nightly/18.1std/625/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) lab2.svo(2776): [TFMPC] - Missing connection for port 'clk_dft'.
+# ** Warning: (vsim-3017) lab2.svo(2799): [TFMPC] - Too few port connections. Expected 8, found 7.
+#    Time: 0 ps  Iteration: 0  Instance: /testbench2/lab3_processor/\~QUARTUS_CREATED_ADC2~  File: /build/swbuild/SJ/nightly/18.1std/625/l64/work/modelsim/eda/sim_lib/fiftyfivenm_atoms.v
+# ** Warning: (vsim-3722) lab2.svo(2799): [TFMPC] - Missing connection for port 'clk_dft'.
 # 
 # add wave *
 # view structure
 # .main_pane.structure.interior.cs.body.struct
 # view signals
 # .main_pane.objects.interior.cs.body.tree
-# run 400 ns
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv(28): No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench2/processor0/control_unit
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Router.sv(20): No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench2/processor0/router
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Router.sv(10): No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench2/processor0/router
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/compute.sv(10): No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench2/processor0/compute_unit
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv(28): No condition is true in the unique/priority if/case statement.
-#    Time: 10 ns  Iteration: 2  Instance: /testbench2/processor0/control_unit
-restart -f
-run 1000ns
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv(28): No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench2/processor0/control_unit
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Router.sv(20): No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench2/processor0/router
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Router.sv(10): No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench2/processor0/router
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/compute.sv(10): No condition is true in the unique/priority if/case statement.
-#    Time: 0 ps  Iteration: 0  Instance: /testbench2/processor0/compute_unit
-# ** Warning: (vsim-8315) E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv(28): No condition is true in the unique/priority if/case statement.
-#    Time: 10 ns  Iteration: 2  Instance: /testbench2/processor0/control_unit
-#           4 error(s) detected. Try again!
-# End time: 19:40:11 on Jun 24,2022, Elapsed time: 0:03:17
-# Errors: 0, Warnings: 10
+# run -all
+#           1 error(s) detected. Try again!
+# Break key hit
+# Break in Module testbench2 at E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/testbench_8.sv line 37
+# End time: 18:05:55 on Jun 30,2022, Elapsed time: 0:00:51
+# Errors: 0, Warnings: 4

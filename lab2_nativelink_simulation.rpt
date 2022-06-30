@@ -1,22 +1,22 @@
 Info: Start Nativelink Simulation process
-Info: NativeLink has detected Verilog design -- Verilog simulation models will be used
 
 ========= EDA Simulation Settings =====================
 
-Sim Mode              :  RTL
+Sim Mode              :  Gate
 Family                :  max10
 Quartus root          :  e:/folder_u/uiuc_summer_2022/ece385/quartus_app/quartus/bin64/
 Quartus sim root      :  e:/folder_u/uiuc_summer_2022/ece385/quartus_app/quartus/eda/sim_lib
 Simulation Tool       :  modelsim-altera
-Simulation Language   :  verilog
+Simulation Language   :  systemverilog
 Simulation Mode       :  GUI
-Sim Output File       :  
-Sim SDF file          :  
+Sim Output File       :  lab2.svo
+Sim SDF file          :  lab2__verilog.sdo
 Sim dir               :  simulation\modelsim
 
 =======================================================
 
 Info: Starting NativeLink simulation with ModelSim-Altera software
 Sourced NativeLink script e:/folder_u/uiuc_summer_2022/ece385/quartus_app/quartus/common/tcl/internal/nativelink/modelsim.tcl
+Warning: File lab2_run_msim_gate_systemverilog.do already exists - backing up current file as lab2_run_msim_gate_systemverilog.do.bak8
 Info: Spawning ModelSim-Altera Simulation software 
 Info: NativeLink simulation flow was successful

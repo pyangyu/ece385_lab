@@ -87,7 +87,7 @@ module Processor (input logic   Clk,     // Internal
 								.Shift_En(shift_enable),
                         .D(Out_ADD_SUB_Adder[7:0]),
 								.Shift_out(Out_A_Least_Bit),
-								.Data_out(A)
+								.Data_Out(A)
 								);
 								
 								
@@ -99,7 +99,7 @@ module Processor (input logic   Clk,     // Internal
 								.Shift_En(shift_enable),
                         .D(In_S),
 								.Shift_out(Out_B_Least_Bit),
-								.Data_out(B)
+								.Data_Out(B)
 								);
 								
 	// for register S, we can store the value in the module. ?
@@ -140,7 +140,7 @@ module Processor (input logic   Clk,     // Internal
                         .In0(A[7:4]),
                         .Out0(AhexU) );	
 	 HexDriver        HexBU (
-                       .In0(A[7:4]),
+                       .In0(B[7:4]),
                         .Out0(BhexU) );
 								
 	  //Input synchronizers required for asynchronous inputs (in this case, from the switches)

@@ -1,13 +1,22 @@
 
 State Machine - |Processor|control:control_unit|curr_state
-Name curr_state.J curr_state.I curr_state.H curr_state.G curr_state.F curr_state.E curr_state.D curr_state.C curr_state.B curr_state.A 
-curr_state.A 0 0 0 0 0 0 0 0 0 0 
-curr_state.B 0 0 0 0 0 0 0 0 1 1 
-curr_state.C 0 0 0 0 0 0 0 1 0 1 
-curr_state.D 0 0 0 0 0 0 1 0 0 1 
-curr_state.E 0 0 0 0 0 1 0 0 0 1 
-curr_state.F 0 0 0 0 1 0 0 0 0 1 
-curr_state.G 0 0 0 1 0 0 0 0 0 1 
-curr_state.H 0 0 1 0 0 0 0 0 0 1 
-curr_state.I 0 1 0 0 0 0 0 0 0 1 
-curr_state.J 1 0 0 0 0 0 0 0 0 1 
+Name curr_state.a18 curr_state.a17 curr_state.a16 curr_state.a15 curr_state.a14 curr_state.a13 curr_state.a12 curr_state.a11 curr_state.a10 curr_state.a9 curr_state.a8 curr_state.a7 curr_state.a6 curr_state.a5 curr_state.a4 curr_state.a3 curr_state.a2 curr_state.a1 curr_state.a0 
+curr_state.a0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+curr_state.a1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+curr_state.a2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+curr_state.a3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+curr_state.a4 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+curr_state.a5 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+curr_state.a6 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+curr_state.a7 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+curr_state.a8 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+curr_state.a9 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+curr_state.a10 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+curr_state.a11 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.a12 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.a13 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.a14 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.a15 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.a16 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.a17 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+curr_state.a18 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
