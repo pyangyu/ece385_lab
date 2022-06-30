@@ -27,10 +27,10 @@ module Processor (input logic   Clk,     // Internal
 	 logic Reset_SH, ClearXA_LoadB_SH, Execute_SH;
 //	 logic [2:0] F_S;
 //	 logic [1:0] R_S;
-	 logic Ld_X, Out_X, In_x;
+	 logic Ld_X, Out_X, In_X;
 	 logic Out_A_Least_Bit, Out_B_Least_Bit; // Out from A and head to B
 	 logic sub_flag;
-	 logic In_S;            // the value in register S
+	 logic [7:0] In_S;            // the value in register S
 	 logic [7:0] A, B;
 	 logic [8:0] Out_ADD_SUB_Adder;
 	 logic clear_RegA, send_RegB, clear_BitX;
@@ -40,7 +40,9 @@ module Processor (input logic   Clk,     // Internal
 	 
 	 assign free_add_one = 0;
 	 
-	 assign clear_RegA = (clear_RegA | send_RegB | clear_SH);
+	 // Error (10161): object "clear_SH" is not declared. Verify the object name is correct. If the name is correct, declare the object.
+
+	 assign clear_RegA = (clear_RegA | send_RegB | ClearXA_LoadB_SH);
 	 
 	 
 	 assign M = B[0];
@@ -69,7 +71,7 @@ module Processor (input logic   Clk,     // Internal
 	 
 	 // load two units which are logic unit a and logic unit B
 	 x_unit 				value_X (
-								.Clk(clk),
+								.Clk(Clk),
 								.Load(Ld_X),
 								.Reset(clear_BitX),
 								.Bit(In_X),
@@ -119,8 +121,8 @@ module Processor (input logic   Clk,     // Internal
                         .Reset(Reset_SH),
                         .Execute(Execute_SH),
                         .Shift(shift_enable),
-                        .Add(Add_enable),
-                        .Sub(Sub_enable),
+                        .Add(Add_En),
+                        .Sub(Sub_En),
 								.goToB(send_RegB)
 								);
 								
@@ -145,8 +147,8 @@ module Processor (input logic   Clk,     // Internal
 	  //These are array module instantiations
 	  //Note: S stands for SYNCHRONIZED, H stands for active HIGH
 	  //Note: We can invert the levels inside the port assignments
-	  sync button_sync[3:0] (Clk, {~Reset, ~ClearXA_LoadB, ~Execute}, {Reset_SH, ClearXA_LoadB_SH, Execute_SH});
-	  sync Din_sync[7:0] (Clk, S, In_S);
+	  sync button_sync[2:0] (Clk, {~Reset, ~ClearXA_LoadB, ~Execute}, {Reset_SH, ClearXA_LoadB_SH, Execute_SH});
+	  sync Din_sync[7:0] (Clk, Din, In_S);
 //	  sync F_sync[2:0] (Clk, F, F_S);
 //	  sync R_sync[1:0] (Clk, R, R_S);
 	  

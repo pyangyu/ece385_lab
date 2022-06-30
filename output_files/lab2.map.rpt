@@ -1,5 +1,5 @@
 Analysis & Synthesis report for lab2
-Fri Jun 24 19:32:17 2022
+Thu Jun 30 17:44:32 2022
 Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
 
 
@@ -10,19 +10,13 @@ Quartus Prime Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
   2. Analysis & Synthesis Summary
   3. Analysis & Synthesis Settings
   4. Parallel Compilation
-  5. Analysis & Synthesis Source Files Read
-  6. Analysis & Synthesis Resource Usage Summary
-  7. Analysis & Synthesis Resource Utilization by Entity
-  8. State Machine - |Processor|control:control_unit|curr_state
-  9. Registers Removed During Synthesis
- 10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Port Connectivity Checks: "HexDriver:HexBU"
- 13. Port Connectivity Checks: "HexDriver:HexAU"
- 14. Post-Synthesis Netlist Statistics for Top Partition
- 15. Elapsed Time Per Partition
- 16. Analysis & Synthesis Messages
- 17. Analysis & Synthesis Suppressed Messages
+  5. Port Connectivity Checks: "control:control_unit"
+  6. Port Connectivity Checks: "ripple_adder:adder_nine_bit|adder_four:RA0"
+  7. Port Connectivity Checks: "ripple_adder:adder_nine_bit"
+  8. Port Connectivity Checks: "register_unit:reg_unitB"
+  9. Port Connectivity Checks: "register_unit:reg_unitA"
+ 10. Analysis & Synthesis Messages
+ 11. Analysis & Synthesis Suppressed Messages
 
 
 
@@ -48,22 +42,22 @@ refer to the applicable agreement for further details.
 +----------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                     ;
 +------------------------------------+---------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Fri Jun 24 19:32:17 2022       ;
+; Analysis & Synthesis Status        ; Failed - Thu Jun 30 17:44:32 2022           ;
 ; Quartus Prime Version              ; 18.1.0 Build 625 09/12/2018 SJ Lite Edition ;
 ; Revision Name                      ; lab2                                        ;
 ; Top-level Entity Name              ; Processor                                   ;
 ; Family                             ; MAX 10                                      ;
-; Total logic elements               ; 66                                          ;
-;     Total combinational functions  ; 51                                          ;
-;     Dedicated logic registers      ; 43                                          ;
-; Total registers                    ; 43                                          ;
-; Total pins                         ; 66                                          ;
-; Total virtual pins                 ; 0                                           ;
-; Total memory bits                  ; 0                                           ;
-; Embedded Multiplier 9-bit elements ; 0                                           ;
-; Total PLLs                         ; 0                                           ;
-; UFM blocks                         ; 0                                           ;
-; ADC blocks                         ; 0                                           ;
+; Total logic elements               ; N/A until Partition Merge                   ;
+;     Total combinational functions  ; N/A until Partition Merge                   ;
+;     Dedicated logic registers      ; N/A until Partition Merge                   ;
+; Total registers                    ; N/A until Partition Merge                   ;
+; Total pins                         ; N/A until Partition Merge                   ;
+; Total virtual pins                 ; N/A until Partition Merge                   ;
+; Total memory bits                  ; N/A until Partition Merge                   ;
+; Embedded Multiplier 9-bit elements ; N/A until Partition Merge                   ;
+; Total PLLs                         ; N/A until Partition Merge                   ;
+; UFM blocks                         ; N/A until Partition Merge                   ;
+; ADC blocks                         ; N/A until Partition Merge                   ;
 +------------------------------------+---------------------------------------------+
 
 
@@ -162,201 +156,61 @@ refer to the applicable agreement for further details.
 ; Maximum allowed            ; 6           ;
 ;                            ;             ;
 ; Average used               ; 1.00        ;
-; Maximum used               ; 6           ;
+; Maximum used               ; 1           ;
 ;                            ;             ;
 ; Usage by Processor         ; % Time Used ;
 ;     Processor 1            ; 100.0%      ;
-;     Processors 2-6         ;   0.0%      ;
 +----------------------------+-------------+
 
 
-+------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Source Files Read                                                                                                                           ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
-; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                       ; Library ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
-; Synchronizers.sv                 ; yes             ; User SystemVerilog HDL File  ; E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Synchronizers.sv ;         ;
-; Router.sv                        ; yes             ; User SystemVerilog HDL File  ; E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Router.sv        ;         ;
-; Register_unit.sv                 ; yes             ; User SystemVerilog HDL File  ; E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Register_unit.sv ;         ;
-; Reg_4.sv                         ; yes             ; User SystemVerilog HDL File  ; E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Reg_4.sv         ;         ;
-; Processor.sv                     ; yes             ; User SystemVerilog HDL File  ; E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv     ;         ;
-; HexDriver.sv                     ; yes             ; User SystemVerilog HDL File  ; E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/HexDriver.sv     ;         ;
-; Control.sv                       ; yes             ; User SystemVerilog HDL File  ; E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv       ;         ;
-; compute.sv                       ; yes             ; User SystemVerilog HDL File  ; E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/compute.sv       ;         ;
-+----------------------------------+-----------------+------------------------------+--------------------------------------------------------------------+---------+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "control:control_unit"                                                               ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Add  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "ripple_adder:adder_nine_bit|adder_four:RA0"                                                                                                                                           ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port     ; Type  ; Severity ; Details                                                                                                                                                                            ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; c_in     ; Input ; Warning  ; Input port expression (32 bits) is wider than the input port (1 bits) it drives.  The 31 most-significant bit(s) in the expression will be dangling if they have no other fanouts. ;
+; c_in[-1] ; Input ; Info     ; Stuck at GND                                                                                                                                                                       ;
++----------+-------+----------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------+
-; Analysis & Synthesis Resource Usage Summary             ;
-+---------------------------------------------+-----------+
-; Resource                                    ; Usage     ;
-+---------------------------------------------+-----------+
-; Estimated Total logic elements              ; 66        ;
-;                                             ;           ;
-; Total combinational functions               ; 51        ;
-; Logic element usage by number of LUT inputs ;           ;
-;     -- 4 input functions                    ; 38        ;
-;     -- 3 input functions                    ; 4         ;
-;     -- <=2 input functions                  ; 9         ;
-;                                             ;           ;
-; Logic elements by mode                      ;           ;
-;     -- normal mode                          ; 51        ;
-;     -- arithmetic mode                      ; 0         ;
-;                                             ;           ;
-; Total registers                             ; 43        ;
-;     -- Dedicated logic registers            ; 43        ;
-;     -- I/O registers                        ; 0         ;
-;                                             ;           ;
-; I/O pins                                    ; 66        ;
-;                                             ;           ;
-; Embedded Multiplier 9-bit elements          ; 0         ;
-;                                             ;           ;
-; Maximum fan-out node                        ; Clk~input ;
-; Maximum fan-out                             ; 43        ;
-; Total fan-out                               ; 397       ;
-; Average fan-out                             ; 1.76      ;
-+---------------------------------------------+-----------+
+; Port Connectivity Checks: "ripple_adder:adder_nine_bit" ;
++------+--------+----------+------------------------------+
+; Port ; Type   ; Severity ; Details                      ;
++------+--------+----------+------------------------------+
+; cin  ; Input  ; Info     ; Stuck at GND                 ;
+; cout ; Output ; Info     ; Explicitly unconnected       ;
++------+--------+----------+------------------------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                             ;
-+-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
-; Compilation Hierarchy Node  ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; UFM Blocks ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; ADC blocks ; Full Hierarchy Name                           ; Entity Name   ; Library Name ;
-+-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
-; |Processor                  ; 51 (0)              ; 43 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 66   ; 0            ; 0          ; |Processor                                    ; Processor     ; work         ;
-;    |HexDriver:HexAL|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|HexDriver:HexAL                    ; HexDriver     ; work         ;
-;    |HexDriver:HexBL|        ; 7 (7)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|HexDriver:HexBL                    ; HexDriver     ; work         ;
-;    |compute:compute_unit|   ; 1 (1)               ; 0 (0)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|compute:compute_unit               ; compute       ; work         ;
-;    |control:control_unit|   ; 10 (10)             ; 10 (10)                   ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|control:control_unit               ; control       ; work         ;
-;    |register_unit:reg_unit| ; 24 (0)              ; 16 (0)                    ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|register_unit:reg_unit             ; register_unit ; work         ;
-;       |reg_4:reg_A|         ; 12 (12)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|register_unit:reg_unit|reg_4:reg_A ; reg_4         ; work         ;
-;       |reg_4:reg_B|         ; 12 (12)             ; 8 (8)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|register_unit:reg_unit|reg_4:reg_B ; reg_4         ; work         ;
-;    |sync:Din_sync[0]|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:Din_sync[0]                   ; sync          ; work         ;
-;    |sync:Din_sync[1]|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:Din_sync[1]                   ; sync          ; work         ;
-;    |sync:Din_sync[2]|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:Din_sync[2]                   ; sync          ; work         ;
-;    |sync:Din_sync[3]|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:Din_sync[3]                   ; sync          ; work         ;
-;    |sync:Din_sync[4]|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:Din_sync[4]                   ; sync          ; work         ;
-;    |sync:Din_sync[5]|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:Din_sync[5]                   ; sync          ; work         ;
-;    |sync:Din_sync[6]|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:Din_sync[6]                   ; sync          ; work         ;
-;    |sync:Din_sync[7]|       ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:Din_sync[7]                   ; sync          ; work         ;
-;    |sync:F_sync[0]|         ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:F_sync[0]                     ; sync          ; work         ;
-;    |sync:F_sync[1]|         ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:F_sync[1]                     ; sync          ; work         ;
-;    |sync:F_sync[2]|         ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:F_sync[2]                     ; sync          ; work         ;
-;    |sync:R_sync[0]|         ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:R_sync[0]                     ; sync          ; work         ;
-;    |sync:R_sync[1]|         ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:R_sync[1]                     ; sync          ; work         ;
-;    |sync:button_sync[0]|    ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:button_sync[0]                ; sync          ; work         ;
-;    |sync:button_sync[1]|    ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:button_sync[1]                ; sync          ; work         ;
-;    |sync:button_sync[2]|    ; 0 (0)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:button_sync[2]                ; sync          ; work         ;
-;    |sync:button_sync[3]|    ; 1 (1)               ; 1 (1)                     ; 0           ; 0          ; 0            ; 0       ; 0         ; 0    ; 0            ; 0          ; |Processor|sync:button_sync[3]                ; sync          ; work         ;
-+-----------------------------+---------------------+---------------------------+-------------+------------+--------------+---------+-----------+------+--------------+------------+-----------------------------------------------+---------------+--------------+
-Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
++---------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_unit:reg_unitB"                                                                                               ;
++-----------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+; Port      ; Type    ; Severity         ; Details                                                                                                  ;
++-----------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+; Shift_out ; Output  ; Info             ; Connected to dangling logic. Logic that only feeds a dangling port will be removed.                      ;
+; Data_out  ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                   ;
+; Data_Out  ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++-----------+---------+------------------+----------------------------------------------------------------------------------------------------------+
 
 
-Encoding Type:  One-Hot
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; State Machine - |Processor|control:control_unit|curr_state                                                                                                         ;
-+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
-; Name         ; curr_state.J ; curr_state.I ; curr_state.H ; curr_state.G ; curr_state.F ; curr_state.E ; curr_state.D ; curr_state.C ; curr_state.B ; curr_state.A ;
-+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
-; curr_state.A ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ;
-; curr_state.B ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 1            ;
-; curr_state.C ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 1            ;
-; curr_state.D ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 1            ;
-; curr_state.E ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 1            ;
-; curr_state.F ; 0            ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; curr_state.G ; 0            ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; curr_state.H ; 0            ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; curr_state.I ; 0            ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-; curr_state.J ; 1            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 0            ; 1            ;
-+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+--------------+
-
-
-+------------------------------------------------------------+
-; Registers Removed During Synthesis                         ;
-+---------------------------------------+--------------------+
-; Register name                         ; Reason for Removal ;
-+---------------------------------------+--------------------+
-; control:control_unit|curr_state~2     ; Lost fanout        ;
-; control:control_unit|curr_state~3     ; Lost fanout        ;
-; control:control_unit|curr_state~4     ; Lost fanout        ;
-; control:control_unit|curr_state~5     ; Lost fanout        ;
-; Total Number of Removed Registers = 4 ;                    ;
-+---------------------------------------+--------------------+
-
-
-+------------------------------------------------------+
-; General Register Statistics                          ;
-+----------------------------------------------+-------+
-; Statistic                                    ; Value ;
-+----------------------------------------------+-------+
-; Total registers                              ; 43    ;
-; Number of registers using Synchronous Clear  ; 17    ;
-; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 0     ;
-; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 14    ;
-; Number of registers using Preset             ; 0     ;
-+----------------------------------------------+-------+
-
-
-+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                          ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |Processor|register_unit:reg_unit|reg_4:reg_A|Data_Out[2] ;
-; 4:1                ; 7 bits    ; 14 LEs        ; 14 LEs               ; 0 LEs                  ; Yes        ; |Processor|register_unit:reg_unit|reg_4:reg_B|Data_Out[6] ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------+
-
-
-+---------------------------------------------+
-; Port Connectivity Checks: "HexDriver:HexBU" ;
-+------+-------+----------+-------------------+
-; Port ; Type  ; Severity ; Details           ;
-+------+-------+----------+-------------------+
-; In0  ; Input ; Info     ; Stuck at GND      ;
-+------+-------+----------+-------------------+
-
-
-+---------------------------------------------+
-; Port Connectivity Checks: "HexDriver:HexAU" ;
-+------+-------+----------+-------------------+
-; Port ; Type  ; Severity ; Details           ;
-+------+-------+----------+-------------------+
-; In0  ; Input ; Info     ; Stuck at GND      ;
-+------+-------+----------+-------------------+
-
-
-+-----------------------------------------------------+
-; Post-Synthesis Netlist Statistics for Top Partition ;
-+-----------------------+-----------------------------+
-; Type                  ; Count                       ;
-+-----------------------+-----------------------------+
-; boundary_port         ; 66                          ;
-; cycloneiii_ff         ; 43                          ;
-;     ENA SCLR          ; 14                          ;
-;     SCLR              ; 3                           ;
-;     plain             ; 26                          ;
-; cycloneiii_lcell_comb ; 55                          ;
-;     normal            ; 55                          ;
-;         0 data inputs ; 2                           ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 7                           ;
-;         3 data inputs ; 4                           ;
-;         4 data inputs ; 38                          ;
-;                       ;                             ;
-; Max LUT depth         ; 4.00                        ;
-; Average LUT depth     ; 1.34                        ;
-+-----------------------+-----------------------------+
-
-
-+-------------------------------+
-; Elapsed Time Per Partition    ;
-+----------------+--------------+
-; Partition Name ; Elapsed Time ;
-+----------------+--------------+
-; Top            ; 00:00:02     ;
-+----------------+--------------+
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "register_unit:reg_unitA"                                                                                              ;
++----------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+; Port     ; Type    ; Severity         ; Details                                                                                                  ;
++----------+---------+------------------+----------------------------------------------------------------------------------------------------------+
+; Data_out ; Unknown ; Critical Warning ; Named port was not declared by the instantiated entity                                                   ;
+; Data_Out ; Output  ; Warning          ; Declared by entity but not connected by instance. Logic that only feeds a dangling port will be removed. ;
++----------+---------+------------------+----------------------------------------------------------------------------------------------------------+
 
 
 +-------------------------------+
@@ -365,73 +219,59 @@ Encoding Type:  One-Hot
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 18.1.0 Build 625 09/12/2018 SJ Lite Edition
-    Info: Processing started: Fri Jun 24 19:31:46 2022
+    Info: Processing started: Thu Jun 30 17:44:19 2022
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off lab2 -c lab2
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 6 of the 6 processors detected
-Info (12021): Found 1 design units, including 1 entities, in source file testbench.sv
-    Info (12023): Found entity 1: testbench File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/testbench.sv Line: 1
 Info (12021): Found 3 design units, including 3 entities, in source file synchronizers.sv
-    Info (12023): Found entity 1: sync File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Synchronizers.sv Line: 6
-    Info (12023): Found entity 2: sync_r0 File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Synchronizers.sv Line: 20
-    Info (12023): Found entity 3: sync_r1 File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Synchronizers.sv Line: 41
+    Info (12023): Found entity 1: sync File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Synchronizers.sv Line: 6
+    Info (12023): Found entity 2: sync_r0 File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Synchronizers.sv Line: 20
+    Info (12023): Found entity 3: sync_r1 File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Synchronizers.sv Line: 41
 Info (12021): Found 1 design units, including 1 entities, in source file router.sv
-    Info (12023): Found entity 1: router File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Router.sv Line: 4
-Info (12021): Found 1 design units, including 1 entities, in source file register_unit.sv
-    Info (12023): Found entity 1: register_unit File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Register_unit.sv Line: 9
+    Info (12023): Found entity 1: router File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Router.sv Line: 4
+Info (12021): Found 2 design units, including 2 entities, in source file register_unit.sv
+    Info (12023): Found entity 1: x_unit File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Register_unit.sv Line: 13
+    Info (12023): Found entity 2: register_unit File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Register_unit.sv Line: 33
 Info (12021): Found 1 design units, including 1 entities, in source file reg_4.sv
-    Info (12023): Found entity 1: reg_4 File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Reg_4.sv Line: 3
+    Info (12023): Found entity 1: reg_4 File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Reg_4.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file processor.sv
-    Info (12023): Found entity 1: Processor File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 8
+    Info (12023): Found entity 1: Processor File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 8
 Info (12021): Found 1 design units, including 1 entities, in source file hexdriver.sv
-    Info (12023): Found entity 1: HexDriver File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/HexDriver.sv Line: 1
+    Info (12023): Found entity 1: HexDriver File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/HexDriver.sv Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file control.sv
-    Info (12023): Found entity 1: control File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv Line: 3
+    Info (12023): Found entity 1: control File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Control.sv Line: 3
 Info (12021): Found 1 design units, including 1 entities, in source file compute.sv
-    Info (12023): Found entity 1: compute File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/compute.sv Line: 3
+    Info (12023): Found entity 1: compute File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/compute.sv Line: 3
+Info (12021): Found 1 design units, including 1 entities, in source file testbench_8.sv
+    Info (12023): Found entity 1: testbench2 File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/testbench_8.sv Line: 1
+Info (12021): Found 3 design units, including 3 entities, in source file ripple_adder.sv
+    Info (12023): Found entity 1: ripple_adder File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/ripple_adder.sv Line: 1
+    Info (12023): Found entity 2: full_adder File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/ripple_adder.sv Line: 37
+    Info (12023): Found entity 3: adder_four File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/ripple_adder.sv Line: 47
 Info (12127): Elaborating entity "Processor" for the top level hierarchy
-Info (12128): Elaborating entity "register_unit" for hierarchy "register_unit:reg_unit" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 60
-Info (12128): Elaborating entity "reg_4" for hierarchy "register_unit:reg_unit|reg_4:reg_A" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Register_unit.sv Line: 22
-Info (12128): Elaborating entity "compute" for hierarchy "compute:compute_unit" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 67
-Info (12128): Elaborating entity "router" for hierarchy "router:router" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 74
-Info (12128): Elaborating entity "control" for hierarchy "control:control_unit" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 83
-Info (10264): Verilog HDL Case Statement information at Control.sv(46): all case item expressions in this case statement are onehot File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Control.sv Line: 46
-Info (12128): Elaborating entity "HexDriver" for hierarchy "HexDriver:HexAL" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 86
-Info (12128): Elaborating entity "sync" for hierarchy "sync:button_sync[0]" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 103
-Warning (13024): Output pins are stuck at VCC or GND
-    Warning (13410): Pin "AhexU[0]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 21
-    Warning (13410): Pin "AhexU[1]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 21
-    Warning (13410): Pin "AhexU[2]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 21
-    Warning (13410): Pin "AhexU[3]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 21
-    Warning (13410): Pin "AhexU[4]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 21
-    Warning (13410): Pin "AhexU[5]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 21
-    Warning (13410): Pin "AhexU[6]" is stuck at VCC File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 21
-    Warning (13410): Pin "BhexU[0]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 23
-    Warning (13410): Pin "BhexU[1]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 23
-    Warning (13410): Pin "BhexU[2]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 23
-    Warning (13410): Pin "BhexU[3]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 23
-    Warning (13410): Pin "BhexU[4]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 23
-    Warning (13410): Pin "BhexU[5]" is stuck at GND File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 23
-    Warning (13410): Pin "BhexU[6]" is stuck at VCC File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/Processor.sv Line: 23
-Info (286030): Timing-Driven Synthesis is running
-Info (17049): 4 registers lost all their fanouts during netlist optimizations.
-Info (144001): Generated suppressed messages file E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/output_files/lab2.map.smsg
-Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
-    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 132 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 18 input pins
-    Info (21059): Implemented 48 output pins
-    Info (21061): Implemented 66 logic cells
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 16 warnings
-    Info: Peak virtual memory: 4771 megabytes
-    Info: Processing ended: Fri Jun 24 19:32:17 2022
-    Info: Elapsed time: 00:00:31
-    Info: Total CPU time (on all processors): 00:00:51
+Warning (10755): Verilog HDL warning at Processor.sv(45): assignments to clear_RegA create a combinational loop File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 45
+Info (12128): Elaborating entity "x_unit" for hierarchy "x_unit:value_X" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 79
+Info (12128): Elaborating entity "register_unit" for hierarchy "register_unit:reg_unitA" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 91
+Info (12128): Elaborating entity "ripple_adder" for hierarchy "ripple_adder:adder_nine_bit" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 116
+Info (12128): Elaborating entity "adder_four" for hierarchy "ripple_adder:adder_nine_bit|adder_four:RA0" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/ripple_adder.sv Line: 27
+Info (12128): Elaborating entity "full_adder" for hierarchy "ripple_adder:adder_nine_bit|adder_four:RA0|full_adder:FA0" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/ripple_adder.sv Line: 54
+Info (12128): Elaborating entity "control" for hierarchy "control:control_unit" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 127
+Info (12128): Elaborating entity "HexDriver" for hierarchy "HexDriver:HexAL" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 133
+Info (12128): Elaborating entity "sync" for hierarchy "sync:button_sync[0]" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 150
+Error (12002): Port "Data_out" does not exist in macrofunction "reg_unitB" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 103
+Error (12002): Port "Data_out" does not exist in macrofunction "reg_unitA" File: E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/Processor.sv Line: 91
+Warning (12241): 3 hierarchies have connectivity warnings - see the Connectivity Checks report folder
+Info (144001): Generated suppressed messages file E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/output_files/lab2.map.smsg
+Error: Quartus Prime Analysis & Synthesis was unsuccessful. 2 errors, 3 warnings
+    Error: Peak virtual memory: 4695 megabytes
+    Error: Processing ended: Thu Jun 30 17:44:32 2022
+    Error: Elapsed time: 00:00:13
+    Error: Total CPU time (on all processors): 00:00:29
 
 
 +------------------------------------------+
 ; Analysis & Synthesis Suppressed Messages ;
 +------------------------------------------+
-The suppressed messages can be found in E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB2_Puyu/output_files/lab2.map.smsg.
+The suppressed messages can be found in E:/Folder_U/uiuc_summer_2022/ECE385/LAB/LAB3_Puyu/Lab3/output_files/lab2.map.smsg.
 
 

@@ -33,7 +33,7 @@ endmodule
 module register_unit (input  logic Clk, Reset, Shift_In, Load, Shift_En,
                       input  logic [7:0]  D, // data but from 3-0 to 7-0
                       output logic Shift_out,
-                      output logic [7:0]  Data_out);
+                      output logic [7:0]  Data_Out);
 
 
 	// .* means that:
@@ -51,7 +51,7 @@ module register_unit (input  logic Clk, Reset, Shift_In, Load, Shift_En,
 	    end
     end
 	
-    assign Shift_Out = Data_Out[0];
+    assign Shift_out = Data_Out[0];
 
 endmodule
 

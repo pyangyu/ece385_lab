@@ -7,8 +7,9 @@ timeprecision 1ns;
 // These signals are internal because the processor will be 
 // instantiated as a submodule in testbench.
 logic Clk = 0;
-logic X, M;
 logic Reset, Execute, ClearXA_LoadB;
+logic X, M;
+logic [7:0] Din;
 logic [7:0] Aval,
 		 Bval;
 logic [6:0] AhexL,
@@ -25,6 +26,9 @@ integer ErrorCnt = 0;
 		
 // Instantiating the DUT
 // Make sure the module and signal names match with those in your design
+
+//Error (10897): can't implicitly connect port "M" on instance "processor0" of module "Processor" - no such object is visible in the present scope
+
 Processor lab3_processor(.*);	
 
 // Toggle the clock
@@ -42,56 +46,30 @@ end
 // Everything happens sequentially inside an initial block
 // as in a software program
 initial begin: TEST_VECTORS
-Reset = 0;		// Toggle Rest
-LoadA = 0;
-LoadB = 0;
-Execute = 1;
-Din = 8'h33;	// Specify Din, F, and R
-F = 3'b010;
-R = 2'b10;
+	Reset = 0;		// Toggle Rest
+	Execute = 1;
+	ClearXA_LoadB = 1;
+	
+	
+	Din = 8'b00000111;	// number 7
 
-#2 Reset = 1;
+	#2 Reset = 1;
 
-#2 LoadA = 1;	// Toggle LoadA
-#2 LoadA = 0;
+	#2 ClearXA_LoadB = 0;	
+	#2 ClearXA_LoadB = 1;
 
-#2 LoadB = 1;	// Toggle LoadB
-   Din = 8'h55;	// Change Din
-#2 LoadB = 0;
-   Din = 8'h00;	// Change Din again
+	#2 Din = 8'b00111011; // number 59	// Change Din
+	
+	#2 Execute = 0;
 
-#2 Execute = 0;	// Toggle Execute
-   
-#22 Execute = 1;
-    ans_1a = (8'h33 ^ 8'h55); // Expected result of 1st cycle
-    // Aval is expected to be 8’h33 XOR 8’h55
-    // Bval is expected to be the original 8’h55
-    if (Aval != ans_1a)
-	 ErrorCnt++;
-    if (Bval != 8'h55)
-	 ErrorCnt++;
-    F = 3'b110;	// Change F and R
-    R = 2'b01;
+	#40 Execute = 1;
 
-#2 Execute = 0;	// Toggle Execute
-#2 Execute = 1;
+	//7 * 59 = 413
+	ans_1a = 8'h01;
+	ans_2b = 8'h9d;
 
-#22 Execute = 0;
-    // Aval is expected to stay the same
-    // Bval is expected to be the answer of 1st cycle XNOR 8’h55
-    if (Aval != ans_1a)	
-	 ErrorCnt++;
-    ans_2b = ~(ans_1a ^ 8'h55); // Expected result of 2nd  cycle
-    if (Bval != ans_2b)
-	 ErrorCnt++;
-    R = 2'b11;
-#2 Execute = 1;
-
-// Aval and Bval are expected to swap
-#22 if (Aval != ans_2b)
-	 ErrorCnt++;
-    if (Bval != ans_1a)
-	 ErrorCnt++;
+	if (Aval != ans_1a || Bval != ans_2b)
+		ErrorCnt++;
 
 
 if (ErrorCnt == 0)
