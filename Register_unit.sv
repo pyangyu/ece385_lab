@@ -6,21 +6,48 @@
 // register_unit is module name
 // the things behind is port declaration
 
-module register_unit (input  logic Clk, Reset, A_In, B_In, Ld_A, Ld_B, 
-                            Shift_En, // other pins one the chip
+module register_unit (input  logic Clk, Reset, Shift_In, Load, Shift_En,
                       input  logic [7:0]  D, // data but from 3-0 to 7-0
-                      output logic A_out, B_out, 
-                      output logic [7:0]  A,  // output pins
-                      output logic [7:0]  B);
+                      output logic Shift_out,
+                      output logic [7:0]  Data_out);
 
 
 	// .* means that:
 	// 				Automatically connects everrything else which fits the criteria e.g. .clk(clk), .B(B)
 
-	// same module reg_4 with different module names: reg_A and reg_B
-	reg_4  reg_A (.*, .Shift_In(A_In), .Load(Ld_A),
-	               .Shift_Out(A_out), .Data_Out(A));
-   reg_4  reg_B (.*, .Shift_In(B_In), .Load(Ld_B),
-	               .Shift_Out(B_out), .Data_Out(B));
+	always_ff @ (posedge Clk)
+    begin
+	 	 if (Reset) // Synchronous Reset
+			  Data_Out <= 8'h0;
+		 else if (Load)
+			  Data_Out <= D;
+		 else if (Shift_En)
+		 begin
+			  Data_Out <= { Shift_In, Data_Out[7:1] }; 
+	    end
+    end
+	
+    assign Shift_Out = Data_Out[0];
 
+endmodule
+
+
+// Besides, we have a X unit to hold the bit that shift out from register B
+module x_unit 
+(
+	input		Clk, Load, Reset, Bit,
+	output	logic X
+);
+
+
+	always_ff @ (posedge Clk)
+	begin
+			if (Reset)
+				X <= 1'b0;
+			else
+				if (Load)
+					X <= Bit;
+				else
+					X <= X;
+	end 
 endmodule
