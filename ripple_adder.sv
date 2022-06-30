@@ -3,7 +3,7 @@ module ripple_adder
 	input  [7:0] A, B,
 	input         	cin,
 	input				M, flag, // M is the least significant bit of B
-	output [7:0] S,
+	output [8:0] S,
 	output        	cout
 );
 

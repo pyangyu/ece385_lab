@@ -77,3 +77,4 @@ set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_
 set_global_assignment -name SYSTEMVERILOG_FILE testbench_8.sv
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench.sv -section_id testbench
 set_global_assignment -name EDA_TEST_BENCH_FILE testbench_8.sv -section_id testbench2
+set_global_assignment -name SYSTEMVERILOG_FILE ripple_adder.sv

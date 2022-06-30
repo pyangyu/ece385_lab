@@ -27,19 +27,30 @@ module Processor (input logic   Clk,     // Internal
 	 logic Reset_SH, ClearXA_LoadB_SH, Execute_SH;
 //	 logic [2:0] F_S;
 //	 logic [1:0] R_S;
-	 logic Ld_A, Ld_B, newA, newB, opA, opB, bitA, bitB, Shift_En,
-	       F_A_B;
+	 logic Ld_X, Out_X, In_x;
+	 logic Out_A_Least_Bit, Out_B_Least_Bit; // Out from A and head to B
 	 logic sub_flag;
+	 logic In_S;            // the value in register S
 	 logic [7:0] A, B;
-	 logic [8:0] ADD_SUB_Adder;
+	 logic [8:0] Out_ADD_SUB_Adder;
+	 logic clear_RegA, send_RegB, clear_BitX;
+	 logic shift_enable;
+	 logic Add_En, Sub_En;
+	 logic free_add_one;
+	 
+	 assign free_add_one = 0;
+	 
+	 assign clear_RegA = (clear_RegA | send_RegB | clear_SH);
+	 
 	 
 	 assign M = B[0];
-	 assign sub_flag = M & ;
+	 assign sub_flag = M & Sub_En;  // when sub is reached, and the last significant bit of B, aka M, is 1, then enable the sub_flag
 	 
 	 
 	 //We can use the "assign" statement to do simple combinational logic
 	 assign Aval = A;
 	 assign Bval = B;
+	 assign X = Out_X;
 	 //assign LED = {Execute_SH,LoadA_SH,LoadB_SH,Reset_SH}; //Concatenate is a common operation in HDL
 	 
 	 //Note that you can hardwire F and R here with 'assign'. What to assign them to? Check the demo points!
@@ -52,54 +63,69 @@ module Processor (input logic   Clk,     // Internal
 	 
 	 //Instantiation of modules here
 	 
+	 // the bit in more accurate name:
+	 assign In_X = Out_ADD_SUB_Adder[8];
+	 assign clear_BitX = clear_RegA;
+	 
 	 // load two units which are logic unit a and logic unit B
 	 x_unit 				value_X (
+								.Clk(clk),
+								.Load(Ld_X),
+								.Reset(clear_BitX),
+								.Bit(In_X),
+								.X(Out_X) // hold the output value of X
 										);
 	 
 	 
 	 register_unit    reg_unitA (
                         .Clk(Clk),
-                        .Reset(Reset_SH),
-                        .Ld_A, //note these are inferred assignments, because of the existence a logic variable of the same name
-                        .Ld_B,
-                        .Shift_En,
-                        .D(Din_S),
-                        .A_In(newA),
-                        .B_In(newB),
-                        .A_out(opA),
-                        .B_out(opB),
-                        .A(A),
-                        .B(B) );
+                        .Reset(clear_RegA),
+                        .Shift_In(Out_X),
+                        .Load(Ld_X),
+								.Shift_En(shift_enable),
+                        .D(Out_ADD_SUB_Adder[7:0]),
+								.Shift_out(Out_A_Least_Bit),
+								.Data_out(A)
+								);
+								
 								
 	 register_unit    reg_unitB (
                         .Clk(Clk),
                         .Reset(Reset_SH),
-                        .Ld_A, //note these are inferred assignments, because of the existence a logic variable of the same name
-                        .Ld_B,
-                        .Shift_En,
-                        .D(Din_S),
-                        .A_In(newA),
-                        .B_In(newB),
-                        .A_out(opA),
-                        .B_out(opB),
-                        .A(A),
-                        .B(B) );
+                        .Shift_In(Out_A_Least_Bit),
+                        .Load(ClearXA_LoadB_SH),
+								.Shift_En(shift_enable),
+                        .D(In_S),
+								.Shift_out(Out_B_Least_Bit),
+								.Data_out(B)
+								);
 								
 	// for register S, we can store the value in the module. ?
 								
 								
 	 ripple_adder		adder_nine_bit(
-										);
-								
+								.A(A),
+								.B(In_S),
+								.cin(free_add_one),
+								.M(M),
+								.flag(sub_flag),
+								.S(Out_ADD_SUB_Adder),
+								.cout()
+								);
+										
+												
 	 control          control_unit (
                         .Clk(Clk),
                         .Reset(Reset_SH),
-                        .LoadA(LoadA_SH),
-                        .LoadB(LoadB_SH),
                         .Execute(Execute_SH),
-                        .Shift_En,
-                        .Ld_A,
-                        .Ld_B );
+                        .Shift(shift_enable),
+                        .Add(Add_enable),
+                        .Sub(Sub_enable),
+								.goToB(send_RegB)
+								);
+								
+								
+								
 	 HexDriver        HexAL (
                         .In0(A[3:0]),
                         .Out0(AhexL) );
@@ -119,8 +145,8 @@ module Processor (input logic   Clk,     // Internal
 	  //These are array module instantiations
 	  //Note: S stands for SYNCHRONIZED, H stands for active HIGH
 	  //Note: We can invert the levels inside the port assignments
-	  sync button_sync[3:0] (Clk, {~Reset, ~Execute, ~Execute}, {Reset_SH, ClearXA_LoadB_SH, Execute_SH});
-	  sync Din_sync[7:0] (Clk, Din, Din_S);
+	  sync button_sync[3:0] (Clk, {~Reset, ~ClearXA_LoadB, ~Execute}, {Reset_SH, ClearXA_LoadB_SH, Execute_SH});
+	  sync Din_sync[7:0] (Clk, S, In_S);
 //	  sync F_sync[2:0] (Clk, F, F_S);
 //	  sync R_sync[1:0] (Clk, R, R_S);
 	  

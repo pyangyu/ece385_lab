@@ -6,6 +6,30 @@
 // register_unit is module name
 // the things behind is port declaration
 
+
+// add a unit to hold X
+
+// Besides, we have a X unit to hold the bit that shift out from register B
+module x_unit 
+(
+	input		Clk, Load, Reset, Bit,
+	output	logic X
+);
+
+
+	always_ff @ (posedge Clk)
+	begin
+			if (Reset)
+				X <= 1'b0;
+			else
+				if (Load)
+					X <= Bit;
+				else
+					X <= X;
+	end 
+endmodule
+
+
 module register_unit (input  logic Clk, Reset, Shift_In, Load, Shift_En,
                       input  logic [7:0]  D, // data but from 3-0 to 7-0
                       output logic Shift_out,
@@ -32,22 +56,3 @@ module register_unit (input  logic Clk, Reset, Shift_In, Load, Shift_En,
 endmodule
 
 
-// Besides, we have a X unit to hold the bit that shift out from register B
-module x_unit 
-(
-	input		Clk, Load, Reset, Bit,
-	output	logic X
-);
-
-
-	always_ff @ (posedge Clk)
-	begin
-			if (Reset)
-				X <= 1'b0;
-			else
-				if (Load)
-					X <= Bit;
-				else
-					X <= X;
-	end 
-endmodule
