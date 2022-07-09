@@ -17,6 +17,6 @@ Sim dir               :  simulation\modelsim
 
 Info: Starting NativeLink simulation with ModelSim-Altera software
 Sourced NativeLink script e:/folder_u/uiuc_summer_2022/ece385/quartus_app/quartus/common/tcl/internal/nativelink/modelsim.tcl
-Warning: File lab2_run_msim_gate_systemverilog.do already exists - backing up current file as lab2_run_msim_gate_systemverilog.do.bak8
+Warning: File lab2_run_msim_gate_systemverilog.do already exists - backing up current file as lab2_run_msim_gate_systemverilog.do.bak11
 Info: Spawning ModelSim-Altera Simulation software 
 Info: NativeLink simulation flow was successful

@@ -51,22 +51,22 @@ initial begin: TEST_VECTORS
 	ClearXA_LoadB = 1;
 	
 	
-	Din = 8'b00000111;	// number 7
+	Din = 8'b11000101;	// number -59
 
 	#2 Reset = 1;
 
 	#2 ClearXA_LoadB = 0;	
 	#2 ClearXA_LoadB = 1;
 
-	#2 Din = 8'b00111011; // number 59	// Change Din
+	#10 Din = 8'b00000111; // number 7	// Change Din
 	
 	#2 Execute = 0;
 
 	#40 Execute = 1;
 
-	//7 * 59 = 413
-	ans_1a = 8'h01;
-	ans_2b = 8'h9d;
+	//7 * -59 = -413
+	ans_1a = 8'hfe;
+	ans_2b = 8'h5d;
 
 	if (Aval != ans_1a || Bval != ans_2b)
 		ErrorCnt++;

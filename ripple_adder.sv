@@ -16,17 +16,23 @@ module ripple_adder
 	  logic [7:0] B_in;
 	  
 	  
+	  //Error (10170): Verilog HDL syntax error at ripple_adder.sv(18) near text: "=";  expecting ".", or "(". Check for and fix any syntax errors that appear immediately before or at the specified keyword. The Intel FPGA Knowledge Database contains many articles with specific details on how to resolve this error. Visit the Knowledge Database at https://www.altera.com/support/support-resources/knowledge-base/search.html and search for this specific error message number.
+	  // assign B_in 
+	  // B_in = 8'b0; // do not add S to A since M = 0;
+	  
 	  always_comb
 	  begin
-				if(flag == 1'b1)
+				// assign B_in 
+				// B_in = 8'b0; // do not add S to A since M = 0;
+				if(M == 1'b1) // bug, when M is 1, then add or sub; when M = 0, change all the bit to zero and add the 0 value
 					B_in = B ^ {8{flag}}; // when flag == 0, add to A; when flag == 1, subtract when M = 1 and reach the 8th bit
 				else 
 					B_in = 8'b0; // do not add S to A since M = 0;
 	  end
 				
-	  adder_four RA0(.A(A[3:0]), .B(B[3:0]), .c_in(0), .S(S[3:0]), .c_out(c1));
-	  adder_four RA1(.A(A[7:4]), .B(B[7:4]), .c_in(c1), .S(S[7:4]), .c_out(c2));
-	  full_adder FA3(.x (A[7]), .y (B_in[7]), .z (c2), .s (S[8]), .c (cout));
+	  adder_four RA0(.A(A[3:0]), .B(B_in[3:0]), .c_in(flag), .S(S[3:0]), .c_out(c1));
+	  adder_four RA1(.A(A[7:4]), .B(B_in[7:4]), .c_in(c1), .S(S[7:4]), .c_out(c2));
+	  full_adder FA3(.x (A[7]), .y (B_in[7]), .z (c2), .s (S[8]), .c (cout)); // bug
  
 
 endmodule	  

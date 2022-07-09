@@ -42,7 +42,7 @@ module Processor (input logic   Clk,     // Internal
 	 
 	 // Error (10161): object "clear_SH" is not declared. Verify the object name is correct. If the name is correct, declare the object.
 
-	 assign clear_RegA = (clear_RegA | send_RegB | ClearXA_LoadB_SH);
+	 assign clear_RegA = (Reset_SH | send_RegB | ClearXA_LoadB_SH);
 	 
 	 
 	 assign M = B[0];
@@ -72,18 +72,28 @@ module Processor (input logic   Clk,     // Internal
 	 // load two units which are logic unit a and logic unit B
 	 x_unit 				value_X (
 								.Clk(Clk),
-								.Load(Ld_X),
+								.Load(Add_En),  //.Load(Ld_X),
 								.Reset(clear_BitX),
 								.Bit(In_X),
 								.X(Out_X) // hold the output value of X
 										);
+										
+	ripple_adder		adder_nine_bit(
+								.A(A),
+								.B(In_S),
+								.cin(free_add_one),
+								.M(M),
+								.flag(sub_flag),
+								.S(Out_ADD_SUB_Adder),
+								.cout()
+								);
 	 
 	 
 	 register_unit    reg_unitA (
                         .Clk(Clk),
                         .Reset(clear_RegA),
                         .Shift_In(Out_X),
-                        .Load(Ld_X),
+                        .Load(Add_En),
 								.Shift_En(shift_enable),
                         .D(Out_ADD_SUB_Adder[7:0]),
 								.Shift_out(Out_A_Least_Bit),
@@ -103,17 +113,6 @@ module Processor (input logic   Clk,     // Internal
 								);
 								
 	// for register S, we can store the value in the module. ?
-								
-								
-	 ripple_adder		adder_nine_bit(
-								.A(A),
-								.B(In_S),
-								.cin(free_add_one),
-								.M(M),
-								.flag(sub_flag),
-								.S(Out_ADD_SUB_Adder),
-								.cout()
-								);
 										
 												
 	 control          control_unit (

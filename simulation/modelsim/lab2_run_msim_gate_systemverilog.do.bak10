@@ -14,4 +14,4 @@ vsim -t 1ps +transport_int_delays +transport_path_delays -L altera_ver -L altera
 add wave *
 view structure
 view signals
-run 1000 ns
+run -all
